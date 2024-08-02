@@ -1,4 +1,5 @@
 /*
+ * 1.
  * Este es el primer taller de lógica de programación. Tenga en cuenta la siguiente rúbrica que debe ser  
  * tenida en cuenta para cada ejercicio y se basa en los mandamientos del programador. El taller es una 
  * herramienta para comenzar a preparar la evaluación donde los descuentos si van a ser tenidos en cuenta. 
@@ -23,9 +24,21 @@ public class Taller1 {
 
         System.out.println(Convertir_km_seg(40));
 
-        System.out.println(Convertir_cm_lt(3500));
+        System.out.println(Convertir_cm_lt((double) 3500));
 
         System.out.println(Convertir_us_cops(45623));
+
+        System.out.println(Convertir_cent_far((float) 0));
+
+        System.out.println(Calcular_segs((short) 1, (short) 1, (short) 1, (short) 1));
+
+        System.out.println(Calcular_peso_carga((float) 47.5, (float) 7.5));
+
+        System.out.println(Calcular_horasxviaje((String) "Armenia", (short) 285, (short) 72));
+
+        System.out.println(Calcular_combustible(638, 312, 1243, 220));
+
+        System.out.println(Calcular_peso_luna((byte) 80));
 
     }
 
@@ -114,21 +127,46 @@ public class Taller1 {
 
     public static float Convertir_cent_far(float centigrados){
         try {
+            float fahrenheit = 0;
+
+            final float equivalencia = 9/5;
+            final int base = 32;
+
+                fahrenheit = base + centigrados * equivalencia;
             
+            return fahrenheit;
         } 
         
         catch (Exception e) {
             // TODO: handle exception
+            return 0;
         }
     }
    
    /*
         6.	Diseñe un algoritmo e implemente la función Calcular_segs que recibirá el número de Días, el número de horas, 
         el número de minutos y número segundos como enteros bytes, positivos y devuelva todo en segundos en un entero. 
-        Si hay algún error, devuelva -1.
+        Si hay algún error, devuelva -1. (Se usa short en lugar de byte porque las variables están casteadas como short en el AppTest.java)
    */
 
-   
+   public static int Calcular_segs(short dias, short horas, short minutos, short segundos){
+    try {
+        int segundos_totales = 0;
+
+        final int equivalencia_dia = 86400;
+        final int equivalencia_hora = 3600;
+        final int equivalencia_minuto = 60;
+
+            segundos_totales = dias * equivalencia_dia + horas * equivalencia_hora + minutos * equivalencia_minuto + segundos;
+
+        return segundos_totales;
+    } 
+    
+    catch (Exception e) {
+        // TODO: handle exception
+        return -1;
+    }
+   }
 
    /*
         7.	Un usuario tiene un sistema de báscula para pesar camiones. Diseñe un algoritmo e implemente la función 
@@ -138,7 +176,27 @@ public class Taller1 {
         Si hay algún error, devuelva en un string "Error en la función Calcular_peso_carga"
    */
 
-   
+   public static String Calcular_peso_carga(float peso_total, float peso_vacio){
+    try {
+        float peso_toneladas = 0;
+        float peso_kilos = 0;
+        
+        final int equivalencia = 1000;
+
+            peso_toneladas = peso_total - peso_vacio;
+            peso_kilos = peso_toneladas * equivalencia;
+
+        String resultado = peso_kilos + " kilos - " + peso_toneladas + " toneladas";
+
+        return resultado;
+    } 
+    
+    catch (Exception e) {
+        // TODO: handle exception
+        String mensaje = "Error en la función Calcular_peso_carga ";
+        return mensaje;
+    }
+   }
 
    /*
         8.	Diseñe un algoritmo e implemente la función Calcular_horasxviaje que calcule y devuelva un float con las horas  
@@ -147,7 +205,20 @@ public class Taller1 {
         Si hay algún error, devuelva -1.
    */
 
-  
+  public static float Calcular_horasxviaje(String destino, short distancia, short velocidad){
+    try {
+        float horas_necesarias = 0;
+
+            horas_necesarias = distancia / velocidad;
+
+        return horas_necesarias;
+    } 
+    
+    catch (Exception e) {
+        // TODO: handle exception
+        return -1;
+    }
+  }
    
    /*
         9.	Un avión necesita cargar combustible para cubrir sus rutas programadas en el día. 
@@ -161,8 +232,26 @@ public class Taller1 {
         Si hay algún error, devuelva -1.
    */
 
-   
-   
+   public static float Calcular_combustible(int viaje1, int viaje2, int viaje3, int viaje4){
+    try {
+        float combustible_total = 0;
+
+        final float despegue = 1.2f;
+        final float aterrizaje = 0.4f;
+        final float eficiencia = 60.8f;
+        final float consumo = 0.2f;
+        final float viajes = 4;
+
+            combustible_total = ((viaje1 + viaje2 + viaje3 + viaje4) / eficiencia) * consumo + viajes * (despegue + aterrizaje);
+
+        return combustible_total;
+    } 
+    
+    catch (Exception e) {
+        // TODO: handle exception
+        return -1;
+    }
+   }
    
    /*
         10. Diseñe un algoritmo e implemente la función Calcular_peso_luna que recibe un byte con el peso en la tierra en kilos
@@ -172,5 +261,25 @@ public class Taller1 {
         
         Si hay algún error, devuelva 0.
    */
-   
+  
+   public static double Calcular_peso_luna(byte peso_kilos){
+    try {
+        double peso_tierra_new = 0;
+        double peso_luna_new = 0;
+
+        final float gravedad = 9.81f;
+        final float conversion_luna = 0.165f;
+
+            peso_tierra_new = peso_kilos * gravedad;
+            peso_luna_new = peso_tierra_new * conversion_luna;
+
+        return peso_luna_new;
+    } 
+    
+    catch (Exception e) {
+        // TODO: handle exception
+        return 0;
+    }
+   }
+
 }
