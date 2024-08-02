@@ -20,26 +20,33 @@ public class Taller1 {
     
     public static void main(String[] args) {
 
-        // INVOCACIÓN DE FUNCIONES
+        try {
+            // INVOCACIÓN DE FUNCIONES
 
-        System.out.println(Convertir_km_seg(40));
+            System.out.println(Convertir_km_seg(40));
 
-        System.out.println(Convertir_cm_lt((double) 3500));
-
-        System.out.println(Convertir_us_cops(45623));
-
-        System.out.println(Convertir_cent_far((float) 0));
-
-        System.out.println(Calcular_segs((short) 1, (short) 1, (short) 1, (short) 1));
-
-        System.out.println(Calcular_peso_carga((float) 47.5, (float) 7.5));
-
-        System.out.println(Calcular_horasxviaje((String) "Armenia", (short) 285, (short) 72));
-
-        System.out.println(Calcular_combustible(638, 312, 1243, 220));
-
-        System.out.println(Calcular_peso_luna((byte) 80));
-
+            System.out.println(Convertir_cm_lt((double) 3500));
+    
+            System.out.println(Convertir_us_cops(45623));
+    
+            System.out.println(Convertir_cent_far((float) 0));
+    
+            System.out.println(Calcular_segs((short) 1, (short) 1, (short) 1, (short) 1));
+    
+            System.out.println(Calcular_peso_carga((float) 47.5, (float) 7.5));
+    
+            System.out.println(Calcular_horasxviaje((String) "Armenia", (short) 285, (short) 72));
+    
+            System.out.println(Calcular_combustible(638, 312, 1243, 220));
+    
+            System.out.println(Calcular_peso_luna((byte) 80));
+            
+        } 
+        
+        catch (Exception e) {
+            // TODO: handle exception
+            return;
+        }
     }
 
     // SECCIÓN DE FUNCIONES
